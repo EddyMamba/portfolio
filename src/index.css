@@ -50,12 +50,18 @@
   }
 }
 
+html {
+  min-height: 100svh;
+}
+
 body {
   margin: 0;
+  width: 100%;
+  min-height: 100svh;
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
