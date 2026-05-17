@@ -44,40 +44,61 @@ function Contact() {
 
   return (
     <section className="contact" id="contact">
-      <h2>Me contacter</h2>
+      <div className="contact-card">
+        <div className="contact-card-header">
+          <span className="section-tag">ENVOYER UN MESSAGE !</span>
+         
+          <p className="contact-intro">
+            Si vous avez un besoin, prière de nous contacter. Je suis disponible pour discuter de votre projet
+            et proposer une solution claire, rapide et professionnelle.
+          </p>
+        </div>
 
-      <form onSubmit={handleSubmit} className="contact-form">
-        <input
-          type="text"
-          name="name"
-          placeholder="Votre nom"
-          value={formData.name}
-          onChange={handleChange}
-          required 
-        />
+        <form onSubmit={handleSubmit} className="contact-form">
+          <div className="contact-row">
+            <label className="contact-field">
+              <span>Nom</span>
+              <input
+                type="text"
+                name="name"
+                placeholder="Entrez votre nom"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </label>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Votre adresse email"
-          value={formData.email}
-          onChange={handleChange}
-          required 
-        />
+            <label className="contact-field">
+              <span>Email</span>
+              <input
+                type="email"
+                name="email"
+                placeholder="Entrez votre email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </label>
+          </div>
 
-        <textarea
-          name="message"
-          placeholder="Votre message"
-          value={formData.message}
-          onChange={handleChange}
-          required // 
-        />
+          <label className="contact-field contact-field--full">
+            <span>Message</span>
+            <textarea
+              name="message"
+              placeholder="Votre message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+            />
+          </label>
 
-        <button type="submit">Envoyer</button>
-      </form>
+          <button type="submit">Envoyer</button>
+        </form>
 
-      {/* Message de confirmation */}
-      {submitted && <p className="success" style={{color: 'green'}}>Message envoyé avec succès !</p>}
+        {submitted && (
+          <p className="success contact-success">Message envoyé avec succès !</p>
+        )}
+      </div>
     </section>
   );
 }
