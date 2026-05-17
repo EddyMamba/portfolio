@@ -47,7 +47,7 @@ function Contact() {
       <div className="contact-card">
         <div className="contact-card-header">
           <span className="section-tag">ENVOYER UN MESSAGE !</span>
-         
+          <h2>Me contacter</h2>
           <p className="contact-intro">
             Si vous avez un besoin, prière de nous contacter. Je suis disponible pour discuter de votre projet
             et proposer une solution claire, rapide et professionnelle.
