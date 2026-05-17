@@ -80,72 +80,112 @@ function About() {
     </span>
   );
 
+  const stackSections = [
+    {
+      type: "frontend",
+      title: "Frontend",
+      subtitle: "Interfaces interactives",
+      items: [
+        { short: "R", label: "React", color: "#149eca" },
+        { short: "TS", label: "TypeScript", color: "#3178c6" },
+        { short: "JS", label: "JavaScript", color: "#f7df1e" },
+        { short: "TW", label: "TailwindCSS", color: "#38bdf8" },
+        { short: "V", label: "Vite", color: "#a855f7" },
+      ],
+    },
+    {
+      type: "backend",
+      title: "Backend",
+      subtitle: "API, bases de données et logique serveur",
+      items: [
+        { short: "N", label: "Node.js", color: "#3c873a" },
+        { short: "TS", label: "TypeScript", color: "#3178c6" },
+        { short: "A", label: "AdonisJS", color: "#7c3aed" },
+        { short: "PG", label: "PostgreSQL", color: "#336791" },
+        { short: "Ne", label: "Neon Postgres", color: "#00E599" },
+      ],
+    },
+    {
+      type: "tools",
+      title: "Outils & services",
+      subtitle: "Collaboration, déploiement et support",
+      items: [
+        { short: "Git", label: "Git", color: "#f97316" },
+        { short: "GH", label: "GitHub", color: "#0f172a" },
+        { short: "F", label: "Figma", color: "#a21caf" },
+        { short: "Cl", label: "Cloudinary", color: "#3448C5" },
+        { short: "Rw", label: "Railway", color: "#131415" },
+        { short: "Rn", label: "Render", color: "#D64278" },
+        { short: "Ej", label: "EmailJS", color: "#F3A323" },
+      ],
+    },
+  ];
+
   return (
     <section className="about" id="about">
       <div className="container">
         <div className="about-card">
-          <header className="about-header">
-            <div className="about-titleRow">
-              <h2>{"À\u00A0propos"}</h2>
-              
+          <div className="about-content about-body">
+            <aside className="about-sidebar">
+              <h3>À propos de moi</h3>
+
+              <div className="about-links">
+                <a
+                  className="about-link"
+                  href="https://github.com/EddyMamba"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub
+                </a>
+                <a
+                  className="about-link"
+                  href="https://www.linkedin.com/in/eddymamba"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </aside>
+
+            <div className="about-copy">
+              <p className="about-lead">
+                Basé à Kinshasa, je conçois des solutions web performantes, sécurisées et maintenables pour des produits qui évoluent dans le temps.
+              </p>
+
+              <p>
+                J'interviens sur l'ensemble des étapes d'un projet : cadrage fonctionnel, architecture back-end, développement d'API et interfaces utilisateur, tests et déploiement. J'ai guidé la réalisation d'une <strong>architecture back-end robuste</strong> pour un clone de Twitter, avec gestion des relations utilisateurs, flux temps réel et base de données relationnelle optimisée.
+              </p>
+
+              <p>
+                Je privilégie une démarche structurée, un code lisible, et une collaboration efficace via Git pour livrer des produits fiables, évolutifs et centrés sur l'expérience utilisateur.
+              </p>
             </div>
-            <div className="about-meta" aria-label="Profil">
-              <span className="about-subtitle">Développeur web full-stack</span>
-            </div>
-          </header>
-
-          <div className="about-content">
-            <p className="about-lead">
-              Basé à Kinshasa, je conçois des applications web performantes, accessibles et maintenables pour des projets à fort enjeu.
-            </p>
-
-            <p>
-              Je couvre l'ensemble du cycle de développement : analyse des besoins, architecture back-end, interface utilisateur et déploiement. J'ai notamment conçu une <strong>architecture back-end robuste</strong> pour un clone de Twitter, en mettant en place des relations utilisateurs, des flux de données temps réel et une base de données relationnelle optimisée.
-            </p>
-
-            <p>
-              Je privilégie un code propre, une collaboration structurée via Git et une attention particulière à l'expérience utilisateur afin de livrer des solutions fiables, évolutives et agréables à utiliser.
-            </p>
           </div>
 
           <h3>Ma Stack Technique</h3>
           <ul className="tech-list" aria-label="Stack technique">
-            <li className="tech-group">
-              <div className="tech-group__header">
-                <StackIcon type="frontend" />
-                <h4>Frontend</h4>
-              </div>
-              <div className="tech-group__chips" aria-label="Technologies frontend">
-                <TechChip short="R" label="React" color="#149eca" />
-                <TechChip short="TS" label="TypeScript" color="#3178c6" />
-                <TechChip short="TW" label="TailwindCSS" color="#38bdf8" />
-                <TechChip short="V" label="Vite" color="#a855f7" />
-              </div>
-            </li>
+            {stackSections.map((section) => (
+              <li key={section.title} className="tech-group">
+                <div className="tech-group__header">
+                  <StackIcon type={section.type} />
+                  <div>
+                    <h4>{section.title}</h4>
+                    <p className="tech-group__subtitle">{section.subtitle}</p>
+                  </div>
+                </div>
 
-            <li className="tech-group">
-              <div className="tech-group__header">
-                <StackIcon type="backend" />
-                <h4>Backend</h4>
-              </div>
-              <div className="tech-group__chips" aria-label="Technologies backend">
-                <TechChip short="N" label="Node.js" color="#3c873a" />
-                <TechChip short="A" label="AdonisJS" color="#7c3aed" />
-                <TechChip short="PG" label="PostgreSQL" color="#336791" />
-              </div>
-            </li>
-
-            <li className="tech-group">
-              <div className="tech-group__header">
-                <StackIcon type="tools" />
-                <h4>Outils</h4>
-              </div>
-              <div className="tech-group__chips" aria-label="Outils">
-                <TechChip short="F" label="Figma" color="#a21caf" />
-                <TechChip short="Git" label="Git" color="#f97316" />
-                <TechChip short="GH" label="GitHub" color="#0f172a" />
-              </div>
-            </li>
+                <div
+                  className="tech-group__chips"
+                  aria-label={`Technologies ${section.title.toLowerCase()}`}
+                >
+                  {section.items.map((item) => (
+                    <TechChip key={item.label} {...item} />
+                  ))}
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
