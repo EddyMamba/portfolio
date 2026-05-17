@@ -91,23 +91,20 @@ function About() {
             </div>
             <div className="about-meta" aria-label="Profil">
               <span className="about-subtitle">Développeur web full-stack</span>
-            
-              
             </div>
           </header>
 
           <div className="about-content">
-            <p className="about-lead">Je suis basé à Kinshasa et je me spécialise dans la création d'applications web modernes, fluides et performantes.
+            <p className="about-lead">
+              Basé à Kinshasa, je conçois des applications web performantes, accessibles et maintenables pour des projets à fort enjeu.
             </p>
 
             <p>
-              Mon expertise s'est consolidée à travers des projets ambitieux, notamment la conception d'une 
-              <strong> architecture back-end complexe</strong> pour un clone de Twitter. J'y ai géré des systèmes 
-              de relations utilisateurs, des flux de données en temps réel et des bases de données relationnelles optimisées.
+              Je couvre l'ensemble du cycle de développement : analyse des besoins, architecture back-end, interface utilisateur et déploiement. J'ai notamment conçu une <strong>architecture back-end robuste</strong> pour un clone de Twitter, en mettant en place des relations utilisateurs, des flux de données temps réel et une base de données relationnelle optimisée.
             </p>
 
             <p>
-              Mon approche combine une rigueur technique (Clean Code, workflow Git) avec une sensibilité au design pour offrir la meilleure expérience utilisateur possible.
+              Je privilégie un code propre, une collaboration structurée via Git et une attention particulière à l'expérience utilisateur afin de livrer des solutions fiables, évolutives et agréables à utiliser.
             </p>
           </div>
 
