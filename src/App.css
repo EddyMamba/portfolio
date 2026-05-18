@@ -1,4 +1,7 @@
-*{
+/* ==========================================================================
+   1. CONFIGURATION GLOBALE & RESETS
+   ========================================================================== */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,7 +13,7 @@ html {
 
 body {
   width: 100%;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .container {
@@ -28,37 +31,30 @@ body {
   scroll-margin-top: 90px;
 }
 
+/* ==========================================================================
+   2. BARRE DE NAVIGATION (NAVBAR)
+   ========================================================================== */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 18px 32px;
+  padding: 14px 0;
   background: rgba(2, 6, 23, 0.92);
   backdrop-filter: blur(16px);
   color: white;
   border-bottom: 1px solid rgba(148, 163, 184, 0.18);
 }
 
-.menu-icon {
-  display: none;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  border-radius: 10px;
-  padding: 10px;
-  line-height: 0;
-}
-
-.menu-icon span {
-  display: block;
-  width: 20px;
-  height: 2px;
-  background: white;
-  border-radius: 999px;
-  transition: transform 0.25s ease, opacity 0.25s ease;
+.navbar-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .navbar h2 a {
@@ -145,6 +141,42 @@ body {
   outline-offset: 3px;
 }
 
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  line-height: 0;
+}
+
+.menu-icon span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+
+/* Animations d'ouverture du menu mobile */
+.menu-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(6px);
+}
+
+.menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-6px);
+}
+
+/* ==========================================================================
+   3. SECTION HERO
+   ========================================================================== */
 .hero {
   min-height: 80vh;
   display: flex;
@@ -190,7 +222,8 @@ body {
   line-height: 1.8;
 }
 
-.hero-buttons {
+.hero-buttons, 
+.buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
@@ -237,6 +270,23 @@ body {
   background: rgba(56, 189, 248, 0.12);
 }
 
+.buttons a {
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  background: #38bdf8;
+  color: black;
+}
+
+.buttons a:last-child {
+  background: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   4. SECTION À PROPOS (ABOUT)
+   ========================================================================== */
 .about {
   padding: 80px 20px;
   text-align: left;
@@ -245,23 +295,22 @@ body {
   color: white;
 }
 
-.about-card{
+.about-card {
   margin: 28px auto 0;
   width: 100%;
   max-width: 1200px;
   text-align: left;
-  padding: 36px;
+  padding: 5px 0;
   border-radius: 18px;
   background: rgba(2, 6, 23, 0.45);
   border: 1px solid rgba(148, 163, 184, 0.16);
-  box-shadow:
-    0 12px 34px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(12px);
-
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  animation: fadeUp 0.6s ease forwards;
 }
 
-.about-header{
+.about-header {
   display: grid;
   grid-template-columns: 1fr;
   align-items: start;
@@ -272,22 +321,21 @@ body {
   text-align: center;
 }
 
-.about-titleRow{
+.about-titleRow {
   display: inline-flex;
   text-align: center;
   gap: 12px;
   min-width: 0;
 }
 
-.about-header h2{
-  
+.about-header h2 {
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   letter-spacing: -0.02em;
   line-height: 1.1;
   align-items: center;
 }
 
-.about-badge{
+.about-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -301,7 +349,7 @@ body {
   white-space: nowrap;
 }
 
-.about-badge::before{
+.about-badge::before {
   content: "";
   width: 8px;
   height: 8px;
@@ -311,25 +359,25 @@ body {
   text-align: right;
 }
 
-.about-subtitle{
+.about-subtitle {
   margin: 0;
   color: rgba(226, 232, 240, 0.72);
   font-size: 0.95rem;
   text-align: center;
 }
 
-.about-meta{
+.about-meta {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.about-dot{
+.about-dot {
   color: rgba(226, 232, 240, 0.45);
 }
 
-.about-content{
+.about-content {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
@@ -337,8 +385,12 @@ body {
 
 .about-body {
   display: grid;
-  gap: 80px;
+  gap: 40px;
   align-items: center;
+  justify-content: center; /* Aligne horizontalement le bloc au centre de l'écran */
+  max-width: 1050px;       /* Empêche la grille de s'étaler sur les 1200px de la carte */
+  margin: 0 auto;          /* Centre le bloc complet horizontalement */
+  padding:  20px 0 20px;
 }
 
 .about-sidebar {
@@ -390,67 +442,52 @@ body {
   color: rgba(226, 232, 240, 0.84);
 }
 
-@media (min-width: 1024px) {
-  .about-body {
-    grid-template-columns: 300px minmax(0, 1fr);
-  }
-}
-
 .about-copy {
   display: grid;
   gap: 20px;
-  justify-items: start;
+  justify-items: center; /* Calibrage au milieu */
 }
 
-.about-lead{
+.about-lead {
   font-size: 1.15rem;
   color: rgba(226, 232, 240, 0.98);
   max-width: 680px;
   margin: 0;
-  text-align: left;
+  text-align: justify;
 }
 
-.about h3{
-  margin: 26px 0 14px;
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
-  color: rgba(226, 232, 240, 0.95);
-  text-align: center;
-}
 .about p {
   width: 100%;
   max-width: 680px;
   margin: 0;
   line-height: 1.75;
   color: rgba(226, 232, 240, 0.88);
-  text-align: left;
+  text-align: justify;
 }
 
-@media (min-width: 940px) {
-  .about-body {
-    grid-template-columns: 320px minmax(0, 1fr);
-  }
+/* ==========================================================================
+   5. COMPOSANTS DE LA STACK TECHNIQUE
+   ========================================================================== */
+.tech-section {
+  width: 100%;
+  margin-top: 40px;
+  text-align: center;
 }
 
-@media (max-width: 940px) {
-  .about-sidebar,
-  .about-copy {
-    text-align: center;
-  }
-
-  .about-sidebar h3,
-  .about-copy p,
-  .about-copy .about-lead {
-    text-align: center;
-  }
+.tech-section h3 {
+  margin: 30px 0 24px;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  color: rgba(226, 232, 240, 0.95);
+  text-align: center;
 }
 
-.tech-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  list-style: none;
-  gap: 26px;
-  padding: 0;
-  margin: 0;
+.tech-group__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .tech-group {
@@ -496,12 +533,6 @@ body {
   flex: none;
 }
 
-.tech-group__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
 .chip {
   padding: 8px 14px;
   border-radius: 999px;
@@ -528,66 +559,9 @@ body {
   transform: translateY(-1px);
 }
 
-.menu-icon {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  cursor: pointer;
-}
-
-.menu-icon span {
-  width: 24px;
-  height: 2px;
-  background: white;
-  transition: 0.3s;
-}
-
-/* animation */
-.menu-icon.open span:nth-child(1) {
-  transform: rotate(45deg) translateY(6px);
-}
-
-.menu-icon.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-icon.open span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-6px);
-}
-
-
-.about-card {
-  animation: fadeUp 0.6s ease forwards;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@media (min-width: 720px){
-  .tech-list{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 560px){
-  .about-card{
-    padding: 20px;
-  }
-  .about-header{
-    grid-template-columns: 1fr;
-  }
-  .about-titleRow{
-    flex-wrap: wrap;
-    row-gap: 10px;
-  }
-}
+/* ==========================================================================
+   6. SECTION PROJETS
+   ========================================================================== */
 .projects {
   padding: 80px 20px;
   background: #020617;
@@ -599,13 +573,12 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 36px;
+  padding: 0px;
   border-radius: 18px;
   background: rgba(2, 6, 23, 0.45);
   border: 1px solid rgba(148, 163, 184, 0.16);
-  box-shadow:
-    0 12px 34px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
 }
 
@@ -640,31 +613,9 @@ body {
   max-width: 100%;
 }
 
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  background: rgba(2, 6, 23, 0.92);
-  backdrop-filter: blur(16px);
-  color: white;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
-  padding: 14px 0;
-}
-
-.navbar-inner {
-  width: 100%;
-  max-width: 1200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
 .project-card {
   background: #111827;
-  padding: 30px;
+  padding: 10px;
   border-radius: 24px;
   border: 1px solid rgba(148, 163, 184, 0.12);
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
@@ -680,7 +631,7 @@ body {
 
 .project-card__visual img {
   width: 100%;
-  height: 240px;
+  height: auto;
   object-fit: cover;
   border-radius: 20px;
 }
@@ -764,30 +715,12 @@ body {
   filter: brightness(1.05);
 }
 
-.buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.buttons a {
-  padding: 8px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-  background: #38bdf8;
-  color: black;
-}
-
-.buttons a:last-child {
-  background: transparent;
-  border: 1px solid #38bdf8;
-  color: #38bdf8;
-}
-
-.contact h2{
+/* ==========================================================================
+   7. SECTION CONTACT
+   ========================================================================== */
+.contact h2 {
   font-size: 1.6rem;
   margin-bottom: 1.25rem;
-
 }
 
 .contact-card {
@@ -910,38 +843,74 @@ body {
   color: #86efac;
 }
 
-@media (min-width: 860px) {
-  .contact-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* ==========================================================================
+   8. KEYFRAMES ANIMATIONS
+   ========================================================================== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (min-width: 860px) {
-  .contact-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+/* ==========================================================================
+   9. MEDIA QUERIES (RESPONSIVE) - DU PLUS GRAND AU PLUS PETIT
+   ========================================================================== */
+
+/* Écrans larges / Tablettes Horizontales (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .about-body {
+    grid-template-columns: 300px minmax(0, 1fr);
   }
 }
 
-.menu-icon{
-  display: none;
+/* Moyens écrans (min-width: 940px) */
+@media (min-width: 940px) {
+  .about-body {
+    grid-template-columns: 320px minmax(0, 1fr);
+  }
 }
 
+/* Petits écrans / Tablettes Verticales (max-width: 940px) */
+@media (max-width: 940px) {
+  .about-sidebar {
+    text-align: center;
+  }
 
+  .about-copy {
+    text-align: left;
+    justify-items: start;
+  }
 
-@media (max-width: 768px){
+  .about-sidebar h3 {
+    text-align: center;
+  }
 
+  .about-copy p,
+  .about-copy .about-lead {
+    text-align: left;
+    width: 100%;
+  }
+}
+
+/* Mode responsive Standard (max-width: 768px) */
+@media (max-width: 768px) {
   .navbar {
     padding: 12px 0;
   }
 
   .navbar-inner {
-   
     gap: 16px;
   }
 
-  .menu-icon{
+  .menu-icon {
     display: inline-flex;
   }
+
   .nav-menu {
     position: fixed;
     top: 0;
@@ -950,7 +919,6 @@ body {
     height: 100vh;
     background: rgba(2, 6, 23, 0.98);
     display: flex;
-    
     gap: 20px;
     padding: 80px 20px 22px;
     border-right: 1px solid rgba(148, 163, 184, 0.18);
@@ -960,6 +928,7 @@ body {
     transition: transform 0.3s ease;
     z-index: 999;
   }
+
   .nav-menu.active {
     transform: translateX(0);
     pointer-events: auto;
@@ -970,7 +939,7 @@ body {
     gap: 12px;
   }
 
-  .nav-links a{
+  .nav-links a {
     padding: 12px 8px;
     display: block;
   }
@@ -981,41 +950,43 @@ body {
     font-size: 0.95rem;
   }
 
-  .hero-content{
+  .hero-content {
     flex-direction: column;
     align-items: center;
   }
 
-  .about, .projects, .contact{
+  .about, 
+  .projects, 
+  .contact {
     padding: 40px 15px;
   }
 
-  .about h2, .about h3 {
-  font-size: 1.5rem;
+  .about h2, 
+  .about h3 {
+    font-size: 1.5rem;
+  }
 
-}
+  .contact h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
 
-.contact h2{
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-  .projects-container{
+  .projects-container {
     grid-template-columns: 1fr;
   }
 
   .hero-content h1 {
-  font-size: 1.5rem;
-}
-.hero-buttons, .buttons {
-  
-  flex-direction: column;
-  
-}
+    font-size: 1.5rem;
+  }
 
-.buttons a {
-  padding: 5px 5px;
-}
+  .hero-buttons, 
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons a {
+    padding: 5px 5px;
+  }
 
   .contact-card {
     max-width: 100%;
@@ -1058,14 +1029,36 @@ body {
     border-radius: 14px;
   }
 
-  
-.container {
-  
-  margin: 0 auto;
-  padding: 0 0px;
+  .container {
+    margin: 0 auto;
+    padding: 0 0px;
+  }
 }
 
-
+/* Grille de technologies en colonnes (min-width: 720px) */
+@media (min-width: 720px) {
+  .tech-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
+/* Grille de contact sur Desktop (min-width: 860px) */
+@media (min-width: 860px) {
+  .contact-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 
+/* Tout petits téléphones mobiles (max-width: 560px) */
+@media (max-width: 560px) {
+  .about-card {
+    padding: 20px;
+  }
+  .about-header {
+    grid-template-columns: 1fr;
+  }
+  .about-titleRow {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+}
